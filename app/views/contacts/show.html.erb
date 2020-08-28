@@ -1,0 +1,14 @@
+<span>Contato vinculado ao cliente: <%= link_to @contact.client.name, client_path(@contact.client) %>
+
+<dl>
+  <dt><%= t('contacts.name') %>:</dt>
+  <dd><%= @contact.name %></dd>
+  <dt><%= t('contacts.email') %>:</dt>
+  <dd><%= @contact.email %></dd>
+  <dt><%= t('contacts.secondary_email') %>:</dt>
+  <dd><%= @contact.secondary_email %></dd>
+  <dt><%= t('contacts.phone') %>:</dt>
+  <dd><%= @contact.phone %></dd>
+  <dt><%= t('contacts.comercial_phone') %>:</dt>
+  <dd><%= @contact.comercial_phone %></dd>
+</dl>

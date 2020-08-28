@@ -14,3 +14,7 @@
   <dt><%= t('clients.comercial_phone') %>:</dt>
   <dd><%= @client.comercial_phone %></dd>
 </dl>
+
+<h3>Contatos</h3>
+
+<%= link_to 'Adicionar Contato', new_client_contact_path(@client) %>
