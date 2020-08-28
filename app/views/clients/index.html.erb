@@ -1,0 +1,22 @@
+<%= link_to 'Cadastrar Cliente', new_client_path %>
+
+<% if @clients.present? %>
+  <% @clients.each do |c| %>
+    <dl>
+      <dt><%= t('clients.name') %>:</dt>
+      <dd><%= link_to c.name, client_path(c) %></dd>
+      <dt><%= t('clients.email') %>:</dt>
+      <dd><%= c.email %></dd>
+      <dt><%= t('clients.secondary_email') %>:</dt>
+      <dd><%= c.secondary_email %></dd>
+      <dt><%= t('clients.phone') %>:</dt>
+      <dd><%= c.phone %></dd>
+      <dt><%= t('clients.comercial_phone') %>:</dt>
+      <dd><%= c.comercial_phone %></dd>
+      <dt><%= t('clients.created_at') %>:</dt>
+      <dd><%= c.created_at %></dd>
+    </dl>
+  <% end %>
+<% else %>
+  <span>Não há clientes registrados!</span>
+<% end %>

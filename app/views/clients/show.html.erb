@@ -1,0 +1,16 @@
+<%= link_to 'Editar Cliente', edit_client_path(@client) %>
+
+<%= link_to 'Excluir Cliente', client_path(@client), method: :delete %>
+
+<dl>
+  <dt><%= t('clients.name') %>:</dt>
+  <dd><%= @client.name %></dd>
+  <dt><%= t('clients.email') %>:</dt>
+  <dd><%= @client.email %></dd>
+  <dt><%= t('clients.secondary_email') %>:</dt>
+  <dd><%= @client.secondary_email %></dd>
+  <dt><%= t('clients.phone') %>:</dt>
+  <dd><%= @client.phone %></dd>
+  <dt><%= t('clients.comercial_phone') %>:</dt>
+  <dd><%= @client.comercial_phone %></dd>
+</dl>

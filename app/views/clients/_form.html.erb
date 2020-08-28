@@ -1,0 +1,21 @@
+<% if @client.errors.any? %>
+  <ul>
+    <% @client.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @client do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :secondary_email %>
+  <%= f.text_field :secondary_email %>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+  <%= f.label :comercial_phone %>
+  <%= f.text_field :comercial_phone %>
+  <%= f.submit 'Salvar'%>
+<% end %>
