@@ -78,3 +78,18 @@ Para realizar os testes rode os comandos:
 
 `rspec spec/**/**:4` para roda um único teste dentro de um arquivo específico,
 onde `4` pode ser substituido pelo número da linha em que o teste é iniciado.
+
+## Front-End
+
+Para o front-end será utilizada a biblioteca de CSS Bootstrap; como o CSS é
+dependente do jQuery e do Popper.js os três serão adicionados via yarn com o
+seguinte comando:
+
+`yarn add bootstrap@4.4.1 jquery@3.4.1 popper.js@1.16.1`
+
+Após os pacotes serem adicionados ao projeto, é preciso ensinar o Rails a 
+carregá-los, importando as bibliotecas do Bootstrap no arquivo 
+`app/javascript/packs/application.js` e colocando o jQuery e o Popper.js no
+webpacker, através da configuração feita no arquivo 
+`config/webpack/environment.js`.
+Assim, as três bibliotecas estarão prontas para serem utilizadas.
