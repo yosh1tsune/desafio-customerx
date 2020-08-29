@@ -1,5 +1,7 @@
 <span>Contato vinculado ao cliente: <%= link_to @contact.client.name, client_path(@contact.client) %>
 
+<%= link_to 'Editar Contato', edit_contact_path(@contact) %>
+
 <dl>
   <dt><%= t('contacts.name') %>:</dt>
   <dd><%= @contact.name %></dd>
