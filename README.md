@@ -49,7 +49,7 @@ Para visualizar o projeto, rode o comando:
 
 Por padrão, a aplicação ficará hospedada na porta http://localhost:3000
 
-## Escopo (esses papos não precisam ser repetidos)
+## Escopo (esses passos não precisam ser repetidos)
 
 ### Autenticação
 
@@ -93,3 +93,30 @@ carregá-los, importando as bibliotecas do Bootstrap no arquivo
 webpacker, através da configuração feita no arquivo 
 `config/webpack/environment.js`.
 Assim, as três bibliotecas estarão prontas para serem utilizadas.
+
+### Models
+
+O projeto conta com três models, sendo eles:
+
+Model User, gerado atravez do Devise:
+
+`rails generate devise user`
+
+Model Client, gerado pelo ActiveRecord:
+
+`rails generate model client name email secondary_email phone
+comercial_phone`
+
+Model Contacts, pertencente ao Client e gerado pelo ActiveRecord:
+
+`rails generate model contact name email secondary_email phone
+comercial_phone client:references`
+
+### Funcionalidades
+
+TODAS as ações, incluindo visualização de listas, necessitam de
+autenticação. Caso alguma rota seja acessada sem o usuário estar
+autenticado, será redirecionado para tela de login.
+
+Após devidamente logado o usuário estará livre para navegar pelo sistema
+e realizar todas as operaçes do CRUD de clientes e contatos.
