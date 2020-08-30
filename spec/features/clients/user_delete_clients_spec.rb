@@ -17,4 +17,22 @@ describe 'User delete clients' do
     expect(page).to have_content 'O cliente foi excluido.'
     expect(page).not_to have_content 'Bruno Silva'
   end
+
+  scenario 'and delete related contacts' do
+    user = User.create(email: 'bruno@email.com', password: 'bruno123')
+    client = Client.create(name: 'Bruno Silva', email: 'bruno@email.com',
+                           phone: '11 99999-9999')
+    contact = Contact.create(client: client, name: 'João Carlos',
+                             email: 'joao@email.com', phone: '11 00000-0000')
+
+    login_as(user, scope: :user)                      
+    visit root_path
+    click_on 'Clientes'
+    click_on 'Bruno Silva'
+    click_on 'Excluir Cliente'
+
+    expect(page).to have_content 'O cliente foi excluido.'
+    expect(page).not_to have_content 'Bruno Silva'
+    expect(Contact.all).not_to include contact
+  end
 end

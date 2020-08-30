@@ -2,22 +2,23 @@
 
 <hr>
 
-<%= link_to 'Editar Contato', edit_contact_path(@contact), class: 'btn btn-primary' %>
+<%= link_to 'Editar Contato', edit_contact_path(@contact), class: 'btn btn-primary mb-2' %>
 
-<div class="row">
-  <dl>
-    <dt><%= t('contacts.name') %>:</dt>
-    <dd><%= @contact.name %></dd>
-    <dt><%= t('contacts.email') %>:</dt>
-    <dd><%= @contact.email %></dd>
-    <dt><%= t('contacts.secondary_email') %>:</dt>
-    <dd><%= @contact.secondary_email %></dd>
-    <dt><%= t('contacts.phone') %>:</dt>
-    <dd><%= @contact.phone %></dd>
-    <dt><%= t('contacts.comercial_phone') %>:</dt>
-    <dd><%= @contact.comercial_phone %></dd>
-  </dl>
-</div>
+<dl>
+  <dt><%= t('contacts.name') %>:</dt>
+  <dd><%= @contact.name %></dd>
+  <dt><%= t('contacts.email') %>:</dt>
+  <dd><%= @contact.email %></dd>
+  <dt><%= t('contacts.secondary_email') %>:</dt>
+  <dd><%= @contact.secondary_email %></dd>
+  <dt><%= t('contacts.phone') %>:</dt>
+  <dd><%= @contact.phone %></dd>
+  <dt><%= t('contacts.comercial_phone') %>:</dt>
+  <dd><%= @contact.comercial_phone %></dd>
+</dl>
+
+
+<%= link_to 'Excluir Contato', contact_path(@contact), method: :delete, class: 'btn btn-danger'  %>
 
 <hr>
 

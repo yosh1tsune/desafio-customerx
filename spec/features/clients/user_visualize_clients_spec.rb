@@ -13,7 +13,8 @@ describe 'User visualize clients' do
     expect(page).to have_content "Nome: #{client.name}"
     expect(page).to have_content "E-mail: #{client.email}"
     expect(page).to have_content "Telefone: #{client.phone}"
-    expect(page).to have_content "Cadastrado em: #{client.created_at}"
+    expect(page).to have_content 'Cadastrado em: '\
+                                 "#{I18n.l(client.created_at, format: :long)}"
   end
 
   scenario "and see the advise if there's no clients registered" do

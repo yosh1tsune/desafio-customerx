@@ -4,23 +4,37 @@
 
 <hr>
 
-<% if @clients.present? %>
-  <% @clients.each do |c| %>
-    <div class="card col-md-3 m-5 p-0">
-      <div class="card-body">
-          <h5 class="card-title"><%= t('clients.name') %>: <%= link_to c.name, client_path(c) %></h5>
-          <h6 class="card-subtitle mb-2"><strong><%= t('clients.phone') %></strong>: <%= c.phone %></h6>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong><%= t('clients.comercial_phone') %>:</strong> <%= c.comercial_phone %></li>
-              <li class="list-group-item"><%= t('clients.email') %>:</strong> <%= c.email %></li>
-              <li class="list-group-item"><%= t('clients.secondary_email') %>:</strong> <%= c.secondary_email %></li>
-              <li class="list-group-item"><%= t('clients.created_at') %>:</strong> <%= l(c.created_at, format: :long) %></li>
-            </ul>
-        </div>
-    </div>
+<div class="row justify-content-md-center">
+  <% if @clients.present? %>
+    <% @clients.each do |c| %>
+      <div class="card col-md-3 m-5 p-0">
+        <div class="card-body">
+            <h5 class="card-title"><%= t('clients.name') %>: <%= link_to c.name, client_path(c) %></h5>
+            <p class="card-text">
+              <span class="fa fa-phone"></span>
+              <strong><%= t('clients.phone') %></strong>: <%= c.phone %>
+            </p>
+            <p class="card-text">
+              <span class="fa fa-phone"></span>
+              <strong><%= t('clients.comercial_phone') %>:</strong> <%= c.comercial_phone %>
+            </p>
+            <p class="card-text">
+              <span class="fa fa-envelope"></span>
+              <strong><%= t('clients.email') %>:</strong> <%= c.email %>
+            </p>
+            <p class="card-text">
+              <span class="fa fa-envelope"></span>
+              <strong><%= t('clients.secondary_email') %>:</strong> <%= c.secondary_email %></li>
+            </p>
+            <p class="card-text">
+              <strong><%= t('clients.created_at') %>:</strong> <%= l(c.created_at, format: :long) %>
+            </p>
+          </div>
+      </div>
+    <% end %>
+  <% else %>
+    <span>Não há clientes registrados!</span>
   <% end %>
-<% else %>
-  <span>Não há clientes registrados!</span>
-<% end %>
 
+</div>
 <%= link_to 'Voltar', root_path, class: 'btn btn-light' %>
