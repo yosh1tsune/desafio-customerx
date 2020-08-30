@@ -1,21 +1,42 @@
-<% if @client.errors.any? %>
-  <ul>
-    <% @client.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="d-flex justify-content-center mt-4">
+  <div class="col-md-4 card p-5">
+    <% if @client.errors.any? %>
+      <ul>
+        <% @client.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
 
-<%= form_with model: @client do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :secondary_email %>
-  <%= f.text_field :secondary_email %>
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-  <%= f.label :comercial_phone %>
-  <%= f.text_field :comercial_phone %>
-  <%= f.submit 'Salvar'%>
-<% end %>
+    <%= form_for @client do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :secondary_email %>
+        <%= f.email_field :secondary_email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :comercial_phone %>
+        <%= f.text_field :comercial_phone, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

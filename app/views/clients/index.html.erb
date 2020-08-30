@@ -1,22 +1,26 @@
-<%= link_to 'Cadastrar Cliente', new_client_path %>
+<h1>Lista de clientes</h1>
+
+<%= link_to 'Cadastrar Cliente', new_client_path, class: 'btn btn-primary'  %>
+
+<hr>
 
 <% if @clients.present? %>
   <% @clients.each do |c| %>
-    <dl>
-      <dt><%= t('clients.name') %>:</dt>
-      <dd><%= link_to c.name, client_path(c) %></dd>
-      <dt><%= t('clients.email') %>:</dt>
-      <dd><%= c.email %></dd>
-      <dt><%= t('clients.secondary_email') %>:</dt>
-      <dd><%= c.secondary_email %></dd>
-      <dt><%= t('clients.phone') %>:</dt>
-      <dd><%= c.phone %></dd>
-      <dt><%= t('clients.comercial_phone') %>:</dt>
-      <dd><%= c.comercial_phone %></dd>
-      <dt><%= t('clients.created_at') %>:</dt>
-      <dd><%= c.created_at %></dd>
-    </dl>
+    <div class="card col-md-3 m-5 p-0">
+      <div class="card-body">
+          <h5 class="card-title"><%= t('clients.name') %>: <%= link_to c.name, client_path(c) %></h5>
+          <h6 class="card-subtitle mb-2"><strong><%= t('clients.phone') %></strong>: <%= c.phone %></h6>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong><%= t('clients.comercial_phone') %>:</strong> <%= c.comercial_phone %></li>
+              <li class="list-group-item"><%= t('clients.email') %>:</strong> <%= c.email %></li>
+              <li class="list-group-item"><%= t('clients.secondary_email') %>:</strong> <%= c.secondary_email %></li>
+              <li class="list-group-item"><%= t('clients.created_at') %>:</strong> <%= l(c.created_at, format: :long) %></li>
+            </ul>
+        </div>
+    </div>
   <% end %>
 <% else %>
   <span>Não há clientes registrados!</span>
 <% end %>
+
+<%= link_to 'Voltar', root_path, class: 'btn btn-light' %>

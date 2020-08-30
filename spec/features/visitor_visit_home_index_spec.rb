@@ -7,6 +7,19 @@ describe 'Visitor visit home index' do
     expect(page).to have_content 'Bem vindo!'
   end
 
+  scenario 'and register' do
+    visit root_path
+    click_on 'Entrar'
+    click_on 'Inscrever-se'
+    fill_in 'E-mail', with: 'bruno@email.com'
+    fill_in 'Senha', with: 'bruno123'
+    fill_in 'Confirme sua senha', with: 'bruno123'
+    click_on 'Inscrever-se'
+
+    expect(page).to have_content 'Bem vindo! Você realizou seu registro com '\
+                                 'sucesso.'
+  end
+
   scenario 'and login if already registered' do
     user = User.create(email: 'bruno@email.com', password: 'bruno123')
 

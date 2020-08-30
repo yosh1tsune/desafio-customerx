@@ -19,7 +19,7 @@ class ClientsController < ApplicationController
       flash[:notice] = 'Cliente cadastrado com sucesso!'
       redirect_to @client
     else
-      flash[:alert] = 'Cliente não foi cadastrado. Corrija os erros!'
+      flash.now[:alert] = 'Cliente não foi cadastrado. Corrija os erros!'
       render :new
     end
   end
@@ -34,7 +34,7 @@ class ClientsController < ApplicationController
       flash[:notice] = 'Cliente atualizado com sucesso!'
       redirect_to @client
     else
-      flash[:alert] = 'Cliente não foi atualizado. Corrija os erros!'
+      flash.now[:alert] = 'Cliente não foi atualizado. Corrija os erros!'
       render :edit
     end
   end

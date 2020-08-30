@@ -31,6 +31,16 @@
   color: rgb(255, 255, 255);
 }
 
+.card {
+  background-color: inherit;
+  border: 2px solid rgba(255, 255, 255, 0.125);
+}
+
+.list-group-item {
+  background-color: inherit;
+  border-color: rgb(255, 255, 255);
+}
+
 a {
   color: rgb(244, 125, 8);
 }

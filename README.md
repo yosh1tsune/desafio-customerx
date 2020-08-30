@@ -49,23 +49,23 @@ Para visualizar o projeto, rode o comando:
 
 Por padrão, a aplicação ficará hospedada na porta http://localhost:3000
 
-## Autenticação
+## Escopo (esses papos não precisam ser repetidos)
+
+### Autenticação
 
 Para realizar a autenticação do sistema será utilizada a `gem 'devise'`.
-
-A configuração do devise só precisa ser realizada uma vez, e portanto não é
-necessário repetir.
 
 Os passos de instalação, recursos e utilização podem ser encontrados no
 reposítório da gem: https://github.com/heartcombo/devise
 
-O devise criará um model User com funcionalidades de registro, login, logout,
-lembrar senha, recuperação de senha, entre outros.
+Com o devise é possível criar um model com funcionalidades prontas para 
+registro, login, logout, lembrar senha, recuperação de senha, entre outros,
+podendo também serem alterador manualmente de acordo com a regra de negócios 
+do projeto.
 
-## Testes
+### Testes
 
 Para realizar os testes, será utilizada a `gem 'rspec-rails'`.
-A configuração do rspec também só precisa ser realizada uma única vez.
 
 Os passos de instalação, recursos e utilização podem ser encontrados no
 reposítório da gem: https://github.com/rspec/rspec-rails
@@ -74,12 +74,12 @@ Para realizar os testes rode os comandos:
 
 `rspec` para rodar todos os testes.
 
-`rspec spec/**/**` para roda um arquivo especifico.
+`rspec spec/**/*` para roda um arquivo especifico.
 
-`rspec spec/**/**:4` para roda um único teste dentro de um arquivo específico,
+`rspec spec/**/*:4` para roda um único teste dentro de um arquivo específico,
 onde `4` pode ser substituido pelo número da linha em que o teste é iniciado.
 
-## Front-End
+### Front-End
 
 Para o front-end será utilizada a biblioteca de CSS Bootstrap; como o CSS é
 dependente do jQuery e do Popper.js os três serão adicionados via yarn com o

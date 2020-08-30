@@ -1,41 +1,52 @@
-<%= link_to 'Editar Cliente', edit_client_path(@client) %>
+<div class="container-fluid">
+  <h1>Cliente: <%= @client.name %></h1>
 
-<%= link_to 'Excluir Cliente', client_path(@client), method: :delete %>
+  <hr>
 
-<dl>
-  <dt><%= t('clients.name') %>:</dt>
-  <dd><%= @client.name %></dd>
-  <dt><%= t('clients.email') %>:</dt>
-  <dd><%= @client.email %></dd>
-  <dt><%= t('clients.secondary_email') %>:</dt>
-  <dd><%= @client.secondary_email %></dd>
-  <dt><%= t('clients.phone') %>:</dt>
-  <dd><%= @client.phone %></dd>
-  <dt><%= t('clients.comercial_phone') %>:</dt>
-  <dd><%= @client.comercial_phone %></dd>
-</dl>
+  <%= link_to 'Editar Cliente', edit_client_path(@client), class: 'btn btn-primary mb-2' %>
 
-<h3>Contatos</h3>
+  <dl>
+    <dt><%= t('clients.name') %>:</dt>
+    <dd><%= @client.name %></dd>
+    <dt><%= t('clients.email') %>:</dt>
+    <dd><%= @client.email %></dd>
+    <dt><%= t('clients.secondary_email') %>:</dt>
+    <dd><%= @client.secondary_email %></dd>
+    <dt><%= t('clients.phone') %>:</dt>
+    <dd><%= @client.phone %></dd>
+    <dt><%= t('clients.comercial_phone') %>:</dt>
+    <dd><%= @client.comercial_phone %></dd>
+  </dl>
 
-<%= link_to 'Adicionar Contato', new_client_contact_path(@client) %>
+  <%= link_to 'Excluir Cliente', client_path(@client), method: :delete, class: 'btn btn-danger'  %>
+</div>
 
-<% if @client.contacts.blank? %>
+<div class="container-fluid mt-3">
+  <h3>Contatos</h3>
 
-<% else %>
-  <% @client.contacts.each do |c| %>
-    <dl>
-      <dt><%= t('contacts.name') %>:</dt>
-      <dd><%= link_to c.name, contact_path(c) %></dd>
-      <dt><%= t('contacts.email') %>:</dt>
-      <dd><%= c.email %></dd>
-      <dt><%= t('contacts.secondary_email') %>:</dt>
-      <dd><%= c.secondary_email %></dd>
-      <dt><%= t('contacts.phone') %>:</dt>
-      <dd><%= c.phone %></dd>
-      <dt><%= t('contacts.comercial_phone') %>:</dt>
-      <dd><%= c.comercial_phone %></dd>
-    </dl>
+  <hr>
+  
+  <%= link_to 'Adicionar Contato', new_client_contact_path(@client), class: 'btn btn-primary'  %>
+  
+  <% if @client.contacts.blank? %>
+    <span>Não há contatos registrados</span>
+  <% else %>
+    <% @client.contacts.each do |c| %>
+      <div class="card col-md-2 my-3 p-0">
+        <div class="card-body">
+          <h5 class="card-title"><%= t('contacts.name') %>: <%= link_to c.name, client_path(c) %></h5>
+          <h6 class="card-subtitle mb-2"><strong><%= t('contacts.phone') %></strong>: <%= c.phone %></h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong><%= t('contacts.comercial_phone') %>:</strong> <%= c.comercial_phone %></li>
+            <li class="list-group-item"><%= t('contacts.email') %>:</strong> <%= c.email %></li>
+            <li class="list-group-item"><%= t('contacts.secondary_email') %>:</strong> <%= c.secondary_email %></li>
+          </ul>
+          <%= link_to 'Excluir Contato', contact_path(c), method: :delete, class: 'btn btn-danger mt-2'  %>
+        </div>
+      </div>
 
-    <%= link_to 'Excluir Contato', contact_path(c), method: :delete %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
+<%= link_to 'Voltar', clients_path, class: 'btn btn-light' %>
